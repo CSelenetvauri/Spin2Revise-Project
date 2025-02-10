@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="index-section section">
+
+    <div class="index-section1 section1">
+        <div class="logo-div"><img src="{{ url_for('static', filename='logo.png') }}" alt="A logo for spin 2 revise. It has the name written on a colorful wheel."></div>
+    </div>
+
+    <div class="index-section2 section2">  
+        <form method="POST" action="{{ url_for('create') }}" class="topic-inputs-form form">
+            <img class="top-of-div" src="{{ url_for('static', filename='div-top.png') }}">
+            <textarea required name="items" id="items" rows="6"" class="topic-input textareandinput" placeholder="write down the topics 
+each
+on
+each
+line :D"></textarea>
+            <button class="btn" type="submit">CREATE WHEEL</button>
+        </form>
+    </div>
+
+</section>
+{% endblock %}

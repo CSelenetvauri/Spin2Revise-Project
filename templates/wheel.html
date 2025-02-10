@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="wheel-section section">
+
+    <div class="wheel-wrapper-part section1">
+        <div class="wheel-part">
+            <div class="canvas-background"></div>
+            <canvas id="canvas" width="570" height="570"></canvas>
+            <button  id="spin-button" class="spin">SPIN</button>
+            <img class="arrow-img" src="{{ url_for('static', filename='arrow.png') }}" alt="arrow pointing left">
+        </div>
+    </div>
+
+    <div class="other-part section2">
+
+        <div class="participants">
+            <div class="participants-wrap">
+                <img src="{{ url_for('static', filename='list-of-participants-notepad.png') }}" class="notepad-icon" alt="notepad icon">
+                <button id="participants-btn" class="btn-for-participants">LIST OF PARTICIPANTS</button>
+            </div>
+        </div>
+        
+        <div class="qr-code">
+            <img class="qr-text qr-top" src="{{ url_for('static', filename='qrcodefor.png') }}" alt="qr code for">
+            <img class="qr-code-img" src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+            <img class="qr-text qr-bottom" src="{{ url_for('static', filename='thesession.png') }}" alt="the session">
+        </div>
+
+    </div>
+
+    <div class="participants-list-paper hidden" id="participants-list">
+        <div class="partiicpants-list-wrap">
+            <img class="paper" src="{{ url_for('static', filename='paper.png') }}" alt="piece of paper">
+            <ul class="list-of-particiapants" id="participants">
+            </ul>
+        </div>
+    </div>
+
+    <div class="winner-wrapper hidden" id="winner-wrapper">
+        <div class="winner-stuff">
+            <img class="to-display-on" src="{{ url_for('static', filename='to-display-on.jpg') }}" alt="notepad window">
+            <div class="winner-stuff-in">
+                <div class="winner">Topic: <br> <span id="winner">Topic 1</span></div>
+                <div class="timer" id="timer">10:00</div>
+                <div class="random-participant">Speaker: <span id="random-participant">Name</span></div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <textarea id="items" class="hidden">{{ items | join("\n") }}</textarea>
+
+</section>
+{% endblock %}
