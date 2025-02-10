@@ -61,15 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
         randomParticipantDiv.textContent = `${data.random_participant}`;
         randomParticipantDiv.classList.remove("hidden");
     });
-    
-    function autoCloseWinnerWrapper() {
-        const timerDisplay = document.getElementById('timer');
-        const winnerWrapper = document.getElementById("winner-wrapper");
-
-        if (timerDisplay.textContent === "Time's up!") {
-            winnerWrapper.classList.add("hidden");
-        }
-    }
 });
 
 
