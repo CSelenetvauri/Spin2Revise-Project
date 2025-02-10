@@ -9,10 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     socket.on('spin', function (data) {
         startSpinning(data.speed);
-    
-        const randomParticipantDiv = document.getElementById("random-participant");
-        randomParticipantDiv.textContent = `${data.random_participant}`;
-        randomParticipantDiv.classList.remove("hidden");
     });
 
     socket.on('remove_winner', function () {
@@ -59,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
     socket.on('random_participant_update', function (data) {
         const randomParticipantDiv = document.getElementById("random-participant");
         randomParticipantDiv.textContent = `${data.random_participant}`;
-        randomParticipantDiv.classList.remove("hidden");
     });
 });
 
@@ -121,11 +116,6 @@ let spinning = false;
 let winner = "";
 let timerInterval;
 
-function spin() {
-    const initialSpeed = Math.random() * 20 + 20;
-    socket.emit('spin', { speed: initialSpeed });
-}
-
 function startSpinning(initialSpeed) {
     if (spinning) {
         return;
@@ -176,10 +166,7 @@ function determineWinner(items, angle) {
     const winnerWrapper = document.getElementById("winner-wrapper");
     const winnerDiv = document.getElementById("winner");
     winnerDiv.textContent = `${winner}`;
-
-    if (winnerWrapper) {
-        winnerWrapper.classList.remove("hidden");
-    }
+    winnerWrapper.classList.remove("hidden");
 
     const spinButton = document.getElementById("spin-button");
     if (items.length === 0) {
@@ -213,9 +200,3 @@ function startCountdown(duration) {
         }
     }, 1000);
 }
-
-document.getElementById("winner-wrapper").addEventListener("click", function() {
-    this.classList.add("hidden");
-
-    socket.emit('winner_removed');
-});
