@@ -105,24 +105,19 @@ img {
 }
 
 .topic-input {
-    padding: 10px 20px;
-    border: 8px solid var(--green);
     font-size: clamp(1rem, 0.872rem + 0.315vw, 1.25rem);
-    resize: none;
-    min-width: 85%;
-    max-width: 50%;
 }
 
 .name-input {
-    padding: 10px 20px;
-    border: 8px solid var(--green);
     font-size: 20px;
+}
+
+.textareaandinput {
     resize: none;
     min-width: 85%;
     max-width: 50%;
-}
-
-.textareandinput {
+    padding: 10px 20px;
+    border: 8px solid var(--green);
     width: auto;
     margin: 10% 0 8%;
     align-self: center;
@@ -241,7 +236,7 @@ button.spin:disabled {
 .notepad-icon {
     width: 18%;
     margin-right: -20px;
-    z-index: 11111;
+    z-index: 1;
 }
 
 .btn-for-participants {

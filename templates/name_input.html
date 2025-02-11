@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <section class="name-section section">
+    <section class="section">
 
-        <div class="name-section1 section1">
+        <div class="section1">
             <div class="logo-div"><img src="{{ url_for('static', filename='logo.png') }}" alt="A logo for spin 2 revise. It has the name written on a colorful wheel."></div>
         </div>
     
-        <div class="name-section2 section2">
+        <div class="section2">
                 <form method="POST" action="/name/{{ session_code }}" class="name-inputs-form form">
                     <img class="top-of-div" src="{{ url_for('static', filename='div-top.png') }}">
-                    <input class="name-input textareandinput" type="text" name="name" placeholder="Your name" required>
+                    <input class="name-input textareaandinput" type="text" name="name" placeholder="Your name" required>
                     <button class="join btn" type="submit">JOIN THE SESSION</button>
                 </form>
         </div>
