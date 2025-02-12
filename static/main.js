@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+
     createWheel();
 
     const socket = io.connect(window.location.origin);
@@ -9,11 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     socket.on('spin', function (data) {
         startSpinning(data.speed);
-    });
-
-    socket.on('remove_winner', function () {
-        const winnerWrapper = document.getElementById("winner-wrapper");
-        winnerWrapper.classList.add("hidden");
     });
 
     socket.on('update_participants', function (data) {
@@ -40,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         socket.emit('winner_removed', { session_code: sessionCode });
     });
-
+    
     function updateParticipantsList(participants) {
         const participantsList = document.getElementById("participants");
         participantsList.innerHTML = '';
